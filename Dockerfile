@@ -7,8 +7,7 @@ RUN zypper in -y squid &&\
 
 # Files
 COPY ./root /
-RUN chmod +x /run.sh &&\
-	chmod -R a+rwX /var/cache/squid /var/log/squid /var/run
+RUN chmod -R a+rwX /var/cache/squid /var/log/squid /var/run
 
 # Ports
 EXPOSE 3128
