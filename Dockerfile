@@ -1,5 +1,5 @@
-# Squid server based on openSUSE Leap 15.3
-FROM ghcr.io/fab-infra/base-image:opensuse15.3
+# Squid server based on openSUSE Leap 15.4
+FROM ghcr.io/fab-infra/base-image:opensuse15.4
 
 # Redis
 RUN zypper in -y squid &&\
@@ -7,7 +7,8 @@ RUN zypper in -y squid &&\
 
 # Files
 COPY ./root /
-RUN chmod -R a+rwX /var/cache/squid /var/log/squid /var/run
+RUN mkdir -p /var/run/squid/ &&\
+	chmod -R a+rwX /var/cache/squid /var/log/squid /var/run/squid
 
 # Ports
 EXPOSE 3128
